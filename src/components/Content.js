@@ -4,38 +4,20 @@ import { Icon, Tooltip, Button, Empty } from "antd";
 const loadingIndicator = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 
 function Content({ contents, dataIsNull }) {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [perContents, setperContents] = useState(4);
-  const [pageNull, setPageNull] = useState(false);
+  const [visibleContents, setVisibleContents] = useState(2);
 
-  const handleLoadMore = e => {
-    e.preventDefault();
-
-    let page = [];
-    for (let i = 0; i <= Math.ceil(contents.length / perContents); i++) {
-      page.push(i);
-    }
-
-    let totalPage = page.length;
-    if (currentPage === totalPage) {
-      setPageNull(true);
-    }
-
-    /**
-     * set page
-     */
-    setCurrentPage(currentPage + 1);
+  const handleLoadMore = () => {
+    setTimeout(() => {
+      setVisibleContents(visibleContents + 3);
+    }, 1000);
   };
-
-  /** Pagination */
-  const indexOfLastContents = currentPage * perContents;
 
   if (dataIsNull) {
     return <Empty />;
   } else {
     return (
       <div className="container">
-        {contents.map(content => (
+        {contents.slice(0, visibleContents).map(content => (
           <div className="list-content">
             <img src={content.url_image} />
             <div className="content">
@@ -68,9 +50,11 @@ function Content({ contents, dataIsNull }) {
             </div>
           </div>
         ))}
-        <Button onClick={handleLoadMore} block type="primary">
-          Load more
-        </Button>
+        {visibleContents < contents.length && (
+          <Button onClick={handleLoadMore} block type="primary">
+            Load more
+          </Button>
+        )}
       </div>
     );
   }
