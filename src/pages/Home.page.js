@@ -4,6 +4,7 @@ import axios from "axios";
 // Import Component
 import Header from "../components/Header";
 import Content from "../components/Content";
+import Footer from "../components/Footer";
 
 const data = [
   {
@@ -60,6 +61,7 @@ class Homepage extends Component {
           dataIsNull={this.state.dataIsNull}
           contents={this.state.contents}
         />
+        <Footer />
       </div>
     );
   }
