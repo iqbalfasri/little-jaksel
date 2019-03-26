@@ -1,3 +1,63 @@
-h1, p {
-  font-family: Lato;
+.app {
+  position: relative;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  /* background-color: yellowgreen; */
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  padding: 18px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 250px;
+  /* background-color: salmon; */
+}
+.header h1 {
+  font-size: 54px;
+  line-height: 25px;
+  font-weight: 600;
+}
+.header p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Content */
+.list-content {
+  width: 100%;
+  box-sizing: border-box;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 35px;
+}
+.list-content img {
+  width: 130px;
+  min-width: 130px;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 35px 0 rgba(0,0,0,.1);
+}
+.list-content .content {
+  padding: 5px 25px;
+  box-sizing: border-box;
+}
+.list-content .content h3 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 16px;
+}
+.list-content .content p {
+  font-weight: normal;
+  font-size: 16px;
 }

@@ -1,8 +1,10 @@
 {
-  "name": "react",
+  "name": "little-jaksel",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.15.2",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
@@ -16,7 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "server": "nodemon ./server/app.js"
+    "server": "nodemon ./server/app.js",
+    "proxy": "http://localhost:5000/"
   },
   "devDependencies": {
     "react-scripts": "latest"

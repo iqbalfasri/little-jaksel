@@ -9,6 +9,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 // Load css
 import "./static/css/style.css";
+import "./static/css/reset.css";
+import "antd/dist/antd.css";
 
 ReactDOM.render(
   <Router>
