@@ -1,10 +1,13 @@
 import React from "react";
+import { Button, Icon } from "antd";
 
 const Header = () => (
   <div className="header">
     <div className="container">
-      <h1>Little Jaksel</h1>
-      <p>Sharing tempat nongkrong, working space, kafe, lainya disini.</p>
+      <div className="content">
+        <h1>Little Jaksel</h1>
+        <p>Sharing tempat nongkrong, working space, kafe, lainya disini.</p>
+      </div>
     </div>
   </div>
 );

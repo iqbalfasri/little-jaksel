@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 // Import React Router
 import { Switch, Route } from "react-router-dom";
@@ -7,16 +7,35 @@ import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/Home.page";
 import NotfoundPage from "./pages/Notfound.page";
 
+// Import Context
+import {
+  PostinganProvider,
+  PostinganConsumer
+} from "./context/Postingan.context";
+
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          {/* 404 Page */}
-          <Route component={NotfoundPage} />
-        </Switch>
-      </Fragment>
+      <PostinganProvider>
+        <PostinganConsumer>
+          {ctx => (
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <HomePage
+                    contents={ctx.contents}
+                    dataIsNull={ctx.dataIsNull}
+                  />
+                )}
+              />
+              {/* 404 Page */}
+              <Route component={NotfoundPage} />
+            </Switch>
+          )}
+        </PostinganConsumer>
+      </PostinganProvider>
     );
   }
 }
