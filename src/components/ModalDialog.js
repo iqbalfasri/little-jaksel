@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Icon, Input, Button, Checkbox, Modal } from "antd";
+import { Form, Icon, Input, Modal } from "antd";
 
 function ModalDialog({ visible, onOk, onCancle }) {
   return (

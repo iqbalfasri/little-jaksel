@@ -18,22 +18,24 @@ class App extends Component {
     return (
       <PostinganProvider>
         <PostinganConsumer>
-          {ctx => (
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={props => (
-                  <HomePage
-                    contents={ctx.contents}
-                    dataIsNull={ctx.dataIsNull}
-                  />
-                )}
-              />
-              {/* 404 Page */}
-              <Route component={NotfoundPage} />
-            </Switch>
-          )}
+          {ctx => {
+            return (
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={props => (
+                    <HomePage
+                      contents={ctx.contents}
+                      dataIsNull={ctx.dataIsNull}
+                    />
+                  )}
+                />
+                {/* 404 Page */}
+                <Route component={NotfoundPage} />
+              </Switch>
+            );
+          }}
         </PostinganConsumer>
       </PostinganProvider>
     );

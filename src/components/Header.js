@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Icon } from "antd";
 
 const Header = () => (
   <div className="header">

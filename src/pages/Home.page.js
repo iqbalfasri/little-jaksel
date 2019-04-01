@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Icon } from "antd";
 
 // Import Component
 import Header from "../components/Header";
@@ -11,7 +10,10 @@ class HomePage extends React.Component {
     return (
       <div className="app">
         <Header />
-        <Content dataIsNull={this.props.dataIsNull} contents={this.props.contents} />
+        <Content
+          dataIsNull={this.props.dataIsNull}
+          contents={this.props.contents}
+        />
         <Footer />
       </div>
     );
