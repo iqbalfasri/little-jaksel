@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Icon, Tooltip, Button, Empty, Skeleton } from "antd";
 
 function Content({ contents, dataIsNull }) {
-  const [visibleContents, setVisibleContents] = useState(2);
+  const [visibleContents, setVisibleContents] = useState(3);
   const [loading, setLoading] = useState(false);
 
   const handleLoadMore = () => {
@@ -15,7 +15,9 @@ function Content({ contents, dataIsNull }) {
     }, 1000);
   };
 
-  if (contents.length === 0) {
+  if (dataIsNull) {
+    return <Empty description="Belum ada postingan, ayoo posting sekarang!" style={{margin: '100px 0 150px'}} />;
+  } else if (contents.length === 0) {
     return (
       <div className="container" style={{ marginBottom: "150px" }}>
         <Skeleton active avatar={{ size: "large" }} paragraph={{ rows: 2 }} />
@@ -25,8 +27,6 @@ function Content({ contents, dataIsNull }) {
         <Skeleton active avatar paragraph={{ rows: 2 }} />
       </div>
     );
-  } else if (dataIsNull) {
-    return <Empty />;
   } else {
     return (
       <div className="container">

@@ -19,6 +19,7 @@ class App extends Component {
       <PostinganProvider>
         <PostinganConsumer>
           {ctx => {
+            console.log(ctx)
             return (
               <Switch>
                 <Route

@@ -11,12 +11,13 @@ class PostinganProvider extends Component {
   state = {
     contents: [],
     dataIsNull: false,
-    visibleModal: false
+    visibleModal: false,
+    urlAPI: "https://server-nvrsbadqkq.now.sh/"
   };
 
   componentDidMount() {
     axios
-      .get("https://server-nvrsbadqkq.now.sh/")
+      .get(this.state.urlAPI)
       .then(response => {
         let { code, data } = response.data;
         /**
@@ -46,6 +47,12 @@ class PostinganProvider extends Component {
     });
   };
 
+  handleCancel = e => {
+    this.setState({
+      visibleModal: false
+    });
+  };
+
   handleOk = e => {
     window.location.reload();
   };
@@ -65,8 +72,9 @@ class PostinganProvider extends Component {
         </Button>
         {/* Modal Dialog */}
         <Modal
+          urlAPI={this.state.urlAPI}
+          onCancel={this.handleCancel}
           visible={this.state.visibleModal}
-          onOk={this.handleOk}
         />
       </JakContext.Provider>
     );
